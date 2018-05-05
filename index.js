@@ -6,6 +6,8 @@ const randomString = require('randomstring')
 
 for (let index = 0; index < 15; index++) {
     try {
+        console.log('Mining blog: ', index);
+        
         chain.addBlock(new Block(
                 index+1,
                 luxon.local().toISODate(),
@@ -16,19 +18,9 @@ for (let index = 0; index < 15; index++) {
             )
         )
         
-        chain._chain[0].data = '';
     } catch (error) {
         console.log(error);
-        console.log('Sua corrente ta quebrada ohhh otario')
+        console.log('Sua corrente ta quebrada')
         return 
     }
 }
-
-
-console.log('====================================');
-console.log(chain.isChainValid());
-console.log('===================================='); 
-
-console.log('====================================');
-console.log(chain._chain.length, ...chain._chain   );
-console.log('====================================');

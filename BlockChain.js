@@ -3,6 +3,7 @@ const dateTime = require('luxon').DateTime
 class Blockchain{
     constructor() {
         this._chain = [this.createGenesisBlock()];
+        this._difficulty = 20;
     }
 
     createGenesisBlock() {
@@ -14,11 +15,9 @@ class Blockchain{
     }
 
     addBlock(newBlock) {
-        if (!this.isChainValid()) {
-            throw new Error('BlockChain is not valid anymore!');
-        }
+      
         newBlock.previousHash = this.getLatestBlock().hash;
-        newBlock.hash = newBlock.calculateHash();
+        newBlock.mineBlock(this._difficulty);
         this._chain.push(newBlock);
     }
 
