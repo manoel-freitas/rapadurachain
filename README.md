@@ -4,56 +4,10 @@ By [Manoel Freitas](https://github.com/manoel-freitas).
 [![Maintainability](https://api.codeclimate.com/v1/badges/c48d682afacd6910ebce/maintainability)](https://codeclimate.com/github/manoel-freitas/rapadurachain/maintainability)
 
 ## Description
-**Application Name Here** description can be listed here.
-
-## Installation
-
-Add it to your Gemfile:
-
-```ruby
-gem 'my_example_gem'
-```
-
-Run the following command to install it:
-
-```console
-bundle install
-```
-
-Run the generator:
-
-```console
-rails generate my_example_gem:install
-```
+**Rapadura Coin** is a repo for testing my studys of blockchain. Made in Ceará.
 
 
-## Usage
 
-Usage explanation goes here
-
-```erb
-<%= your_code_goes @here do |f| %>
-  <%= f.input :example %>
-  <%= f.input :example %>
-  <%= f.button :example %>
-<% end %>
-```
-
-
-## Configuration
-
-This block of text should explain how to configure your application:
-
-`rails generate my_example_gem:install`
-
-
-## Information
-
-Screenshots of your application below:
-
-![Screenshot 1](http://placekitten.com/400/300)
-
-![Screenshot 2](http://placekitten.com/400/300)
 
 
 ### Known Issues
@@ -61,12 +15,12 @@ Screenshots of your application below:
 If you discover any bugs, feel free to create an issue on GitHub fork and
 send us a pull request.
 
-[Issues List](Github Issues List URL goes here).
+[Issues List](https://github.com/manoel-freitas/rapadurachain/issues).
 
 ## Authors
 
-* Your Name (Your Github URL goes here)
-* Additional Author's name (Their Github URL goes here)
+* Manoel Freitas (https://github.com/manoel-freitas)
+
 
 
 ## Contributing
@@ -79,5 +33,6 @@ send us a pull request.
 
 
 ## License
-
-Your Licensing Information goes here. Example: MIT/X11.
+WTFPL <a href="http://www.wtfpl.net/"><img
+       src="http://www.wtfpl.net/wp-content/uploads/2012/12/wtfpl-badge-4.png"
+       width="80" height="15" alt="WTFPL" /></a>
