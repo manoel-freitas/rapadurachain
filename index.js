@@ -1,26 +1,24 @@
 const Blockchain = require('./BlockChain')
-const Block = require('./Block')
+const Transaction = require('./Transaction')
 const chain = new Blockchain()
 const luxon = require('luxon').DateTime
-const randomString = require('randomstring')
+const randomNumber = require('random-number')
 
 for (let index = 0; index < 15; index++) {
-    try {
-        console.log('Mining blog: ', index);
-        
-        chain.addBlock(new Block(
-                index+1,
-                luxon.local().toISODate(),
-                randomString.generate({
-                    length: 8,
-                    charset: 'alphabetic'
+        chain.createTransaction(
+            new Transaction(
+                "0001",
+                "002",
+                randomNumber.generator({
+                    min: 0,
+                    max: 10,
+                    integer: true
                 })
             )
         )
-        
-    } catch (error) {
-        console.log(error);
-        console.log('Sua corrente ta quebrada')
-        return 
-    }
 }
+console.log(luxon.local().toJSON());
+
+chain.minePendingTransactions(200)
+
+console.log(luxon.local().toJSON());

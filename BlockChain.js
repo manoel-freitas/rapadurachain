@@ -1,9 +1,14 @@
 const Block = require('./Block')
+const Transaction = require('./Transaction')
 const dateTime = require('luxon').DateTime
+
 class Blockchain{
     constructor() {
         this._chain = [this.createGenesisBlock()];
-        this._difficulty = 20;
+        this._difficulty = 20
+        this._pendingTransactions = [];
+        this._miningReward = 100;
+
     }
 
     createGenesisBlock() {
@@ -14,11 +19,38 @@ class Blockchain{
         return this._chain[this._chain.length - 1];
     }
 
-    addBlock(newBlock) {
-      
-        newBlock.previousHash = this.getLatestBlock().hash;
-        newBlock.mineBlock(this._difficulty);
-        this._chain.push(newBlock);
+    createTransaction(transaction) {
+        this._pendingTransactions.push(transaction);
+    }
+
+    minePendingTransactions(miningRewardAddress) {
+        let block = new Block(Date.now(), this._pendingTransactions);
+        block.mineBlock(this._difficulty);
+        
+        this._chain.push(block);
+    
+        this._pendingTransactions = [
+            new Transaction(null, miningRewardAddress, this.miningReward)
+        ];
+    }
+
+    getBalanceOfAddress(address){
+        let balance = 0; 
+    
+        for(const block of this.chain){
+            for(const trans of block.transactions){
+    
+                if(trans.fromAddress === address){
+                    balance -= trans.amount;
+                }
+    
+                if(trans.toAddress === address){
+                    balance += trans.amount;
+                }
+            }
+        }
+    
+        return balance;
     }
 
     isChainValid() {
